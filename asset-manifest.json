@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/keyboard-train/static/css/main.125dfa73.chunk.css",
+    "main.js": "/keyboard-train/static/js/main.01ddc8ad.chunk.js",
+    "main.js.map": "/keyboard-train/static/js/main.01ddc8ad.chunk.js.map",
+    "runtime-main.js": "/keyboard-train/static/js/runtime-main.dafcde96.js",
+    "runtime-main.js.map": "/keyboard-train/static/js/runtime-main.dafcde96.js.map",
+    "static/js/2.5493b1a0.chunk.js": "/keyboard-train/static/js/2.5493b1a0.chunk.js",
+    "static/js/2.5493b1a0.chunk.js.map": "/keyboard-train/static/js/2.5493b1a0.chunk.js.map",
+    "static/js/3.aa8b04a9.chunk.js": "/keyboard-train/static/js/3.aa8b04a9.chunk.js",
+    "static/js/3.aa8b04a9.chunk.js.map": "/keyboard-train/static/js/3.aa8b04a9.chunk.js.map",
+    "index.html": "/keyboard-train/index.html",
+    "static/css/main.125dfa73.chunk.css.map": "/keyboard-train/static/css/main.125dfa73.chunk.css.map",
+    "static/js/2.5493b1a0.chunk.js.LICENSE.txt": "/keyboard-train/static/js/2.5493b1a0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dafcde96.js",
+    "static/js/2.5493b1a0.chunk.js",
+    "static/css/main.125dfa73.chunk.css",
+    "static/js/main.01ddc8ad.chunk.js"
+  ]
+}
