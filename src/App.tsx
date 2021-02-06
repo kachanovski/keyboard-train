@@ -3,10 +3,10 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import { Login } from './features/Auth/Login';
 import { Header } from './features/Header/Header';
-import { Layout } from './features/Layout';
+import { Layout } from './features/TrainLayout/Layout';
 import { Menu } from './features/Menu/Menu';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <div className={'context'}>

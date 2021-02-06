@@ -1,9 +1,9 @@
 import React from 'react';
-import { InputsField } from './InputsField';
-import { KeyBoard } from './Keyboard';
-import { MistakesCount } from './Mistakes';
-import './../App.css'
-import { Timer } from './Timer/Timer';
+import { CheckField } from './CheckField/CheckField';
+import { KeyBoard } from './Keyboard/Keyboard';
+import { MistakesCount } from './Mistakes/Mistakes';
+import './../../App.css'
+import { Timer } from '../Timer/Timer';
 
 
 export const Layout = () => {
@@ -11,7 +11,7 @@ export const Layout = () => {
         <div className={'layout'}>
             <div className={'context-container'}>
                 <div className={'context-container__inputs-fields'}>
-                    <InputsField />
+                    <CheckField />
                 </div>
                 <div className={'context-container__controls'}>
                     <MistakesCount />

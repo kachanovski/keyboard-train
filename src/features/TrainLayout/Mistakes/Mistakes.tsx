@@ -1,11 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIncrementMistakes } from '../redux/reducers/KeyboardReducer';
-import { StateType } from '../redux/store';
+import { setIncrementMistakes } from '../../../redux/reducers/KeyboardReducer';
+import { StateType } from '../../../redux/store';
 
-export const MistakesCount = () => {
-
-    
+export const MistakesCount = () => {   
     const mistakes = useSelector<StateType, number>(state => state.keyboard.mistakes)
     const dispatch = useDispatch()
 

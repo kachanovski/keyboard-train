@@ -1,6 +1,6 @@
 import React from 'react';
-import { keySets } from '../accets/KeysArrays';
-import './../App.css'
+import { keySets } from '../../../accets/KeysArrays';
+import './../../../App.css';
 
 export const KeyBoard = () => {
 
