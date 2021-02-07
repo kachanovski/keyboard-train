@@ -1,12 +1,17 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { useSelector} from 'react-redux';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { Login } from './features/Auth/Login';
+import { Register } from './features/Auth/Register';
 import { Header } from './features/Header/Header';
-import { Layout } from './features/TrainLayout/Layout';
+import { Layout } from './features/Layout';
 import { Menu } from './features/Menu/Menu';
+import { StateType } from './redux/store';
 
-const App = () => {
+function App() {
+	const {token} = useSelector((state: StateType) => state.authentication);
+
   return (
     <div className="App">
       <div className={'context'}>
@@ -15,10 +20,23 @@ const App = () => {
         </div>
         <div className={'context__inner'}>
           <Header />
-          <Switch>
-            <Route exact path='/' render={() => (<Login />)} />
-            <Route path='/interviews' render={() => (<Layout />)} />
-          </Switch>       
+					{
+						token && (
+							<Switch>
+								<Route path='/interviews' render={() => (<Layout />)} />
+								<Redirect to={'/interviews'}/>
+							</Switch>
+						)
+					}
+					{
+						!token && (
+							<Switch>
+								<Route exact path='/' render={() => (<Login />)} />
+								<Route path='/register' render={() => (<Register />)} />
+								<Redirect to={'/'}/>
+							</Switch> 
+						)
+					}    
         </div>
       </div>
     </div>
