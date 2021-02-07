@@ -1,10 +1,12 @@
+import { authentication } from './reducers/AuthenticationReducer';
 import { KeyboardReducer } from './reducers/KeyboardReducer';
 import {applyMiddleware, combineReducers, createStore} from 'redux';
 import thunkMiddleWare from "redux-thunk"
 
 
 let reducers = combineReducers({
-    keyboard:KeyboardReducer
+    keyboard:KeyboardReducer,
+		authentication
 })
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleWare))
