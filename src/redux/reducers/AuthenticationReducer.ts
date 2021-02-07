@@ -82,7 +82,7 @@ export const authenticationThunk = (url: string, email: string, password: string
 
 export const logOutThunk = (): IThunk => async (dispatch: Dispatch) => {
 	try{
-		const response = await CallApi.delete('logout');
+		await CallApi.delete('logout');
 		dispatch(authenticationLogOut());
 	}
 	catch(response){
