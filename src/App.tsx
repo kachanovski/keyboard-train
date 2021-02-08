@@ -1,5 +1,5 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
 import './App.css'
 import { Login } from './features/Auth/Login'
@@ -7,10 +7,17 @@ import { Register } from './features/Auth/Register'
 import { Header } from './features/Header/Header'
 import { Menu } from './features/Menu/Menu'
 import { Layout } from './features/TrainLayout/Layout'
+import { authMeTC } from './redux/reducers/AuthReducer'
 import { StateType } from './redux/store'
 
 export const App = () => {
-	const { token } = useSelector((state: StateType) => state.authentication)
+	const isAuth = useSelector((state: StateType) => state.auth.isAuth)
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		!isAuth && dispatch(authMeTC())
+		console.log('app', isAuth)
+	}, [dispatch, isAuth])
 
 	return (
 		<div className="App">

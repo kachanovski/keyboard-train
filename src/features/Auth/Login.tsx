@@ -2,15 +2,15 @@ import React from 'react'
 import './Login.css'
 import { Formik, Field, Form } from 'formik'
 import * as Yup from 'yup'
-import { authenticationThunk } from '../../redux/reducers/AuthenticationReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import { StateType } from '../../redux/store'
 import { Redirect } from 'react-router-dom'
+import { googleSignInTC, loginTC } from '../../redux/reducers/AuthReducer'
 
 export const Login: React.FC = () => {
 	const dispatch = useDispatch()
-	const { token } = useSelector((state: StateType) => state.authentication)
-	console.log('token:', token)
+	const isAuth = useSelector((state: StateType) => state.auth.isAuth)
+	console.log('login', isAuth)
 
 	const SignupSchema = Yup.object().shape({
 		email: Yup.string().email('Invalid email').required('Required'),
@@ -21,7 +21,7 @@ export const Login: React.FC = () => {
 		rememberMe: Yup.boolean(),
 	})
 
-	if (token.length > 1) return <Redirect to={'/interviews'} />
+	if (isAuth) return <Redirect to={'/interviews'} />
 
 	return (
 		<div className={'authentication'}>
@@ -35,14 +35,7 @@ export const Login: React.FC = () => {
 					}}
 					validationSchema={SignupSchema}
 					onSubmit={(values) => {
-						dispatch(
-							authenticationThunk(
-								'login',
-								values.email,
-								values.password,
-								values.rememberMe
-							)
-						)
+						dispatch(loginTC(values.email, values.password, values.rememberMe))
 					}}
 				>
 					{({ errors, touched }) => (
@@ -83,6 +76,8 @@ export const Login: React.FC = () => {
 						</Form>
 					)}
 				</Formik>
+
+				<button onClick={dispatch(googleSignInTC)}>google</button>
 			</div>
 		</div>
 	)

@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import './../../../App.css'
+import { AppTS } from './test'
 
 type CheckFieldType = {
     code: string
@@ -30,6 +31,8 @@ export const CheckField = (props: CheckFieldType) => {
 				value={props.codeArea}
 				onChange={onChangeValueInComponent}
 			/>
+
+			<AppTS />
 		</div>
 	)
 }
