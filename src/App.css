@@ -56,6 +56,18 @@
   justify-content: center;
   align-items: center;
 }
+.key-active {
+  border: 1px solid black;
+  width: 4vw;
+  height: 4vw;
+  border-radius: 0.1em;
+  margin: 0.1em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+}
 
 .keyboard-row {
   display: flex;
