@@ -6,16 +6,28 @@ export type TimeType = {
     h: number
 }
 
+export type CodeType = {
+    id: number,
+    title: string
+}
+
+
 export type initialKeyboardReducerState = {
     mistakes: number
-    code: string
+    code: CodeType[]
     value: string
     timeSec: number
 }
 
 const initialState: initialKeyboardReducerState = {
     mistakes: 0, // подсчет ошибок
-    code: 'Hello world!!!', //код который проверяем
+    code: [
+        {id: 1, title: "Hello world"},
+        {id: 2, title: "YoYoYoYo"},
+        {id: 3, title: "Test value"},
+        {id: 4, title: "123456"},
+        {id: 5, title: "Success"}
+    ], //код который проверяем
     value: '',//вводимое значение
     timeSec: 0,// включение таймера
 }
@@ -37,7 +49,7 @@ export const KeyboardReducer = (state = initialState, action: ActionsType) => {
         case 'KEYBOARD/SET_NEW_TIME': {
             return {
                 ...state,
-                timeSec: action.time + 1 
+                timeSec: action.time
             }
         }
         default:

@@ -57,7 +57,7 @@ export const Login: React.FC = () => {
 							<label>
 								<div className="field">
 									<span>Введите пароль</span>
-									<Field className="authentication-field" name="password" />
+									<Field className="authentication-field" name="password" type={'password'} />
 								</div>
 								{errors.password && touched.password ? (
 									<div className="error">{errors.password}</div>
