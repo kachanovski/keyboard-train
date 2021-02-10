@@ -18,6 +18,10 @@ a {
     margin-top: 20px;
 }
 
+a.active {
+    color: red;
+}
+
 a:hover {
     color: red;
 }

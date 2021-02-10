@@ -19,7 +19,7 @@ export const Menu = () => {
                 </div>
                 <div>
                     {category.map(c =>
-                        <NavLink to={c.link}> {c.name}</NavLink>
+                        <NavLink to={c.link} activeClassName={s.active}> {c.name}</NavLink>
                     )}
 
                 </div>
