@@ -6,6 +6,7 @@ import { Login } from './features/Auth/Login'
 import { Register } from './features/Auth/Register'
 import { Header } from './features/Header/Header'
 import { Menu } from './features/Menu/Menu'
+import { Quiz } from './features/Quiz/Quiz'
 import { Layout } from './features/TrainLayout/Layout'
 import { authMeTC } from './redux/reducers/AuthReducer'
 import { StateType } from './redux/store'
@@ -30,6 +31,7 @@ export const App = () => {
 
 					<Switch>
 						<Route path="/interviews" render={() => <Layout />} />
+						<Route path="/quiz" render={() => <Quiz />} />
 						<Route exact path="/" render={() => <Login />} />
 						<Route path="/register" render={() => <Register />} />
 					</Switch>
