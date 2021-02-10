@@ -1,0 +1,13 @@
+.quiz {
+    text-align: start;
+    margin-left: 10px;
+}
+
+.answer {
+    margin: 10px;
+}
+
+.answers {
+    display: flex;
+}
+

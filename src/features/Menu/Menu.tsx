@@ -1,7 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import s from './Menu.module.css'
+
 export const Menu = () => {
+
+    const category = [
+        {name: "Keyboards", link: "/interviews"},
+        {name: "Profile", link: "/profile"},
+        {name: "Quiz", link: "/quiz"}
+        ]
+
+
     return (
         <div className={s.menu}>
             <div className={s.container}>
@@ -9,7 +18,10 @@ export const Menu = () => {
                     <NavLink to='/'>Logo</NavLink>
                 </div>
                 <div>
-                    <NavLink to='/interviews'> Категория 1</NavLink>
+                    {category.map(c =>
+                        <NavLink to={c.link}> {c.name}</NavLink>
+                    )}
+
                 </div>
                 <div>
                     footer
