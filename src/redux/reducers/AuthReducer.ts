@@ -1,7 +1,7 @@
-import { StateType } from './../store';
-import { Dispatch } from "redux";
-import { ThunkAction } from "redux-thunk";
-import { authAPI } from '../../api/AuthApi';
+import { StateType } from './../store'
+import { Dispatch } from 'redux'
+import { ThunkAction } from 'redux-thunk'
+import { authAPI } from '../../api/AuthApi'
 
 const initialState = {
 	isAuth: false as boolean,
@@ -9,7 +9,7 @@ const initialState = {
 }
 
 export type IThunk = ThunkAction<void, StateType, unknown, any>
-type ActionType =  authMeAction
+type ActionType =  authMeActionType
 
 
 export const AuthReducer = (state = initialState, action: ActionType): typeof initialState => {
@@ -74,4 +74,4 @@ export const registerTC = (email: string, password: string) => async (dispatch: 
 
 //types 
 
-type authMeAction = ReturnType<typeof authMeAction>
+type authMeActionType = ReturnType<typeof authMeAction>

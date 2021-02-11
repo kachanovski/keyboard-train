@@ -18,8 +18,8 @@ export const Menu = () => {
                     <NavLink to='/'>Logo</NavLink>
                 </div>
                 <div>
-                    {category.map(c =>
-                        <NavLink to={c.link} activeClassName={s.active}> {c.name}</NavLink>
+                    {category.map((c,id) =>
+                        <NavLink key={id} to={c.link} activeClassName={s.active}> {c.name}</NavLink>
                     )}
 
                 </div>

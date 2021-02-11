@@ -13,9 +13,6 @@ export const Results = (props: ResultsPropsType)=> {
                 <div>
                     Ошибок: {props.mistakes}
                 </div>
-                <div >
-                   Время: <span>{props.time}</span>
-                </div>
             </div>
         </div>
     );

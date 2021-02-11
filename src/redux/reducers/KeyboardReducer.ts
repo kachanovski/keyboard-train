@@ -37,7 +37,7 @@ export const KeyboardReducer = (state = initialState, action: ActionsType) => {
         case 'KEYBOARD/SET_INCREMENT_MISTAKES': {
             return {
                 ...state,
-                mistakes: state.mistakes + 1
+                mistakes: ++state.mistakes
             }
         }
         case 'KEYBOARD/SET_VALUE': {

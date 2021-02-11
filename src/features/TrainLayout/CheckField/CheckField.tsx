@@ -5,6 +5,7 @@ type CheckFieldType = {
 	code: string
 	codeArea: string
 	onChangeValue: (value: string) => void
+	isEnd: boolean
 }
 
 export const CheckField = (props: CheckFieldType) => {
@@ -22,13 +23,14 @@ export const CheckField = (props: CheckFieldType) => {
 	return (
 		<div onKeyDown={onChangeValueOndisplay} className={'wrapper'}>
 			<span>{props.code}</span>
-			<textarea style={{zIndex: -2}} autoFocus ref={refT} value={props.codeArea} onChange={onChangeValueInComponent} />
-			{/*<textarea*/}
-			{/*	autoFocus*/}
-			{/*	ref={refT}*/}
-			{/*	value={props.codeArea}*/}
-			{/*	onChange={onChangeValueInComponent}*/}
-			{/*/>*/}
+		{/*	<textarea style={{zIndex: -2}} autoFocus ref={refT} value={props.codeArea} onChange={onChangeValueInComponent} />*/}
+			<textarea
+				readOnly={props.isEnd}
+				autoFocus
+				ref={refT}
+				value={props.codeArea}
+				onChange={onChangeValueInComponent}
+			/>
 		</div>
 	)
 }
