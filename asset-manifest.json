@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/keyboard-train/static/css/main.b88ce8dd.chunk.css",
-    "main.js": "/keyboard-train/static/js/main.5be521b0.chunk.js",
-    "main.js.map": "/keyboard-train/static/js/main.5be521b0.chunk.js.map",
-    "runtime-main.js": "/keyboard-train/static/js/runtime-main.3eebd627.js",
-    "runtime-main.js.map": "/keyboard-train/static/js/runtime-main.3eebd627.js.map",
-    "static/js/2.503755fc.chunk.js": "/keyboard-train/static/js/2.503755fc.chunk.js",
-    "static/js/2.503755fc.chunk.js.map": "/keyboard-train/static/js/2.503755fc.chunk.js.map",
-    "static/js/3.f4f134f7.chunk.js": "/keyboard-train/static/js/3.f4f134f7.chunk.js",
-    "static/js/3.f4f134f7.chunk.js.map": "/keyboard-train/static/js/3.f4f134f7.chunk.js.map",
+    "main.css": "/keyboard-train/static/css/main.e529c0e4.chunk.css",
+    "main.js": "/keyboard-train/static/js/main.a6a54f15.chunk.js",
+    "main.js.map": "/keyboard-train/static/js/main.a6a54f15.chunk.js.map",
+    "runtime-main.js": "/keyboard-train/static/js/runtime-main.b68ff18d.js",
+    "runtime-main.js.map": "/keyboard-train/static/js/runtime-main.b68ff18d.js.map",
+    "static/js/2.7be07a6e.chunk.js": "/keyboard-train/static/js/2.7be07a6e.chunk.js",
+    "static/js/2.7be07a6e.chunk.js.map": "/keyboard-train/static/js/2.7be07a6e.chunk.js.map",
+    "static/js/3.bdf9d43d.chunk.js": "/keyboard-train/static/js/3.bdf9d43d.chunk.js",
+    "static/js/3.bdf9d43d.chunk.js.map": "/keyboard-train/static/js/3.bdf9d43d.chunk.js.map",
     "index.html": "/keyboard-train/index.html",
-    "static/css/main.b88ce8dd.chunk.css.map": "/keyboard-train/static/css/main.b88ce8dd.chunk.css.map",
-    "static/js/2.503755fc.chunk.js.LICENSE.txt": "/keyboard-train/static/js/2.503755fc.chunk.js.LICENSE.txt"
+    "static/css/main.e529c0e4.chunk.css.map": "/keyboard-train/static/css/main.e529c0e4.chunk.css.map",
+    "static/js/2.7be07a6e.chunk.js.LICENSE.txt": "/keyboard-train/static/js/2.7be07a6e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.3eebd627.js",
-    "static/js/2.503755fc.chunk.js",
-    "static/css/main.b88ce8dd.chunk.css",
-    "static/js/main.5be521b0.chunk.js"
+    "static/js/runtime-main.b68ff18d.js",
+    "static/js/2.7be07a6e.chunk.js",
+    "static/css/main.e529c0e4.chunk.css",
+    "static/js/main.a6a54f15.chunk.js"
   ]
 }
