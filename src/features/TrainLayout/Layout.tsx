@@ -24,26 +24,29 @@ export const Layout = () => {
 
 	let [count, setCount] = useState<number>(0)
 	let [string, setString] = useState<string>(code[count].title)
+	let [keyCount, setKeyCount] = useState<number>(0)
 
 
 	const [seconds, setSeconds] = useState(0)
 	const [isActiveTimer, setIsActiveTimer] = useState<boolean>(false)
 	const [isEnd, setIsEnd] = useState<boolean>(false)
 
-	useEffect(() => {
-			let id = setInterval(() => {
-				if (isActiveTimer) {
-					setSeconds( s=> s+1)
-				}
-			}, 1000)
-			return () => clearInterval(id)
+	// useEffect(() => {
+	// 		let id = setInterval(() => {
+	// 			if (isActiveTimer) {
+	// 				setSeconds( s=> s+1)
+	// 			}
+	// 		}, 1000)
+	// 		return () => clearInterval(id)
+	//
+	// }, [isActiveTimer])
 
-	}, [isActiveTimer])
-
+    const result = string.split('')
 
 
 	//checkField func
 	const onChangeValue = (value: string) => {
+		setKeyCount(keyCount + 1)
 		setIsActiveTimer(true)
 		const codeLength = value.length - 1
 		dispatch(setValueAC(value))
@@ -51,6 +54,7 @@ export const Layout = () => {
 			dispatch(setIncrementMistakesAC())
 		}
 		if (code[count].title.length - 1 === codeArea.length) {
+			setKeyCount(0)
 			next()
 			dispatch(setValueAC(''))
 			setString(code[count].title)
@@ -91,7 +95,7 @@ export const Layout = () => {
 				</div>
 			</div>
 			<div className={'keyboard'}>
-				<KeyBoard />
+				<KeyBoard result={result} keyCount={keyCount} />
 			</div>
 		</div>
 	)

@@ -63,11 +63,11 @@ export const keySets = {
                 { glyph: 'Shift', upperGlyph: 'Shift', color: 'grey', size: 'command', code: 16 },
             ], [
                 { glyph: 'Ctrl', upperGlyph: 'Ctrl', color: 'grey', size: 'key', code: 17 },
-                { glyph: '', upperGlyph: '', color: 'grey', size: 'key' },
+                { glyph: '', upperGlyph: '', color: 'grey', size: 'key', code: 0 },
                 { glyph: 'Alt', upperGlyph: 'Alt', color: 'grey', size: 'key', code: 18 },
                 { glyph: ' ', upperGlyph: '', color: 'grey', size: 'space', code: 32 },
                 { glyph: 'Alt', upperGlyph: 'Alt', color: 'grey', size: 'key', code: 18 },
-                { glyph: '', upperGlyph: '', color: 'grey', size: 'key' },
+                { glyph: '', upperGlyph: '', color: 'grey', size: 'key', code: 0 },
                 { glyph: 'Ctrl', upperGlyph: 'Ctrl', color: 'grey', size: 'key', code: 17 }
             ]
         ],
@@ -135,11 +135,11 @@ export const keySets = {
                 { glyph: 'Shift', upperGlyph: 'Shift', color: 'grey', size: 'command', code: 16 },
             ], [
                 { glyph: 'Ctrl', upperGlyph: 'Ctrl', color: 'grey', size: 'key', code: 17 },
-                { glyph: '', upperGlyph: '', color: 'grey', size: 'key' },
+                { glyph: '', upperGlyph: '', color: 'grey', size: 'key', code: 0 },
                 { glyph: 'Alt', upperGlyph: 'Alt', color: 'grey', size: 'key', code: 18 },
                 { glyph: ' ', upperGlyph: '', color: 'grey', size: 'space', code: 32 },
                 { glyph: 'Alt', upperGlyph: 'Alt', color: 'grey', size: 'key', code: 18 },
-                { glyph: '', upperGlyph: '', color: 'grey', size: 'key' },
+                { glyph: '', upperGlyph: '', color: 'grey', size: 'key', code: 0 },
                 { glyph: 'Ctrl', upperGlyph: 'Ctrl', color: 'grey', size: 'key', code: 17 }
             ]
         ]
