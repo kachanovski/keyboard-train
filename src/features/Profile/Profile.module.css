@@ -1,0 +1,110 @@
+.profile {
+
+}
+
+.container {
+    height: 100%;
+}
+
+/*Свойства блока профайл инфо*/
+.profileInfo {
+    display: flex;
+}
+
+.avatar {
+    width: 300px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profileImgAvatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin-bottom: 35px;
+}
+
+.buttonProfile {
+    padding: 12px;
+    height: 60px;
+    width: 170px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    display: inline-block;
+    font-size: 1em;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #15cbb7;
+    color: #100e10;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+    box-shadow: 0 2px 25px rgb(154, 23, 190);
+
+}
+
+.info {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.userName {
+    padding-bottom: 20px;
+    font-size: 30px;
+}
+
+/*Блок мой результат*/
+
+.resultProfile {
+    height: 400px;
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+}
+
+.myResult {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.category {
+    display: flex;
+}
+
+.cat {
+    font-size: 30px;
+    margin-right: 10px;
+    border: 3px solid #0f86a4;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.catActive {
+    font-size: 30px;
+    margin-right: 10px;
+    border: 3px solid black;
+    cursor: pointer;
+    background-color: #0f86a4;
+    border-radius: 10px;
+}
+
+.statistic {
+    height: 100px;
+    width: 1000px;
+    display: flex;
+    border: 5px solid #0f86a4;
+    padding-top: 50px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.parameter {
+    font-size: 30px;
+    padding-right: 50px;
+}

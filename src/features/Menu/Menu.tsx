@@ -17,7 +17,7 @@ export const Menu = () => {
                         <NavLink to='/interviews' className={s.link} activeClassName={s.activeLink}> Категория 1</NavLink>
                     </div>
                     <div className={s.link_container}>
-                        <NavLink to='/2' className={s.link} activeClassName={s.activeLink}> Категория 2</NavLink>
+                        <NavLink to='/Profile' className={s.link} activeClassName={s.activeLink}> Категория 2</NavLink>
                     </div>
                     <div className={s.link_container}>
                         <NavLink to='/3' className={s.link} activeClassName={s.activeLink}> Категория 3</NavLink>

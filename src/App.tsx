@@ -9,6 +9,7 @@ import { Menu } from './features/Menu/Menu'
 import { Layout } from './features/TrainLayout/Layout'
 import { authMeTC } from './redux/reducers/AuthReducer'
 import { StateType } from './redux/store'
+import {Profile} from "./features/Profile/Profile";
 
 export const App = () => {
 	const isAuth = useSelector((state: StateType) => state.auth.isAuth)
@@ -32,6 +33,7 @@ export const App = () => {
 						<Route path="/interviews" render={() => <Layout />} />
 						<Route exact path="/" render={() => <Login />} />
 						<Route path="/register" render={() => <Register />} />
+						<Route path="/Profile" render={() => <Profile/>} />
 					</Switch>
 				</div>
 			</div>
