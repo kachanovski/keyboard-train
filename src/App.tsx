@@ -16,7 +16,6 @@ export const App = () => {
 
 	useEffect(() => {
 		!isAuth && dispatch(authMeTC())
-		console.log('app', isAuth)
 	}, [dispatch, isAuth])
 
 	return (

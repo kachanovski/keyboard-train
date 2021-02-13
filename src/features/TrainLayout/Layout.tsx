@@ -10,6 +10,7 @@ import {
 	setNewTimeAC,
 	setValueAC,
 } from '../../redux/reducers/KeyboardReducer'
+import Card from './Card/Card'
 
 export const Layout = () => {
 	const mistakes = useSelector<StateType, number>(
@@ -51,7 +52,8 @@ export const Layout = () => {
 
 	return (
 		<div className={'layout'}>
-			<div className={'context-container'}>
+			<Card />
+			{/*<div className={'context-container'}>
 				<div className={'context-container__inputs-fields'}>
 					<CheckField
 						code={code}
@@ -65,7 +67,7 @@ export const Layout = () => {
 			</div>
 			<div className={'keyboard'}>
 				<KeyBoard />
-			</div>
+	</div>*/}
 		</div>
 	)
 }
