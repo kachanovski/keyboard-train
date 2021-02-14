@@ -2,7 +2,7 @@ import React,{ useState }  from 'react'
 import './../../../App.css';
 import * as Yup from 'yup'
 import { Formik, Field, Form } from 'formik'
-import UIField from '../../../component/UIField';
+import UIField from '../../../component/UIField/UIField';
 import { cardAPI } from '../../../api/CardApi';
 //@ts-ignore
 import {NotificationContainer, NotificationManager} from 'react-notifications';
@@ -43,7 +43,7 @@ export const Card = () => {
 							code: '',
 						}}
 						validationSchema={SignupSchema}
-						onSubmit={async (values) => {
+						onSubmit={async (values, actions) => {
 							try{
 								const response = await cardAPI.addCard(values.author, values.category, values.code);
 								if(response.statusCode > 200){
@@ -55,10 +55,13 @@ export const Card = () => {
 							}
 							catch(err){
 								NotificationManager.success('Ошибка сервера', 3000);
+							}
+							finally{
+								actions.setSubmitting(false);
 							}			
 						}}
 					>
-						{({ errors, touched }) => {
+						{({ errors, touched, isSubmitting, isValid, dirty }) => {
 							return <Form className="authentication-form">
 								<UIField
 									title={'Введите имя'}
@@ -89,6 +92,7 @@ export const Card = () => {
 									<button 
 										type="submit"
 										className="btn"
+										disabled={(!isValid || !dirty) || isSubmitting} 
 									>
 										Отправить
 									</button>

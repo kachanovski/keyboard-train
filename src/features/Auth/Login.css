@@ -13,28 +13,6 @@
 	padding: 10px;
 }
 
-.authentication-form > label{
-	display: block;
-	margin-bottom: 10px;
-}
-
-
-.field{
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-}
-
-.field > input{
-	width: 65%;
-}
-
-.error{
-	color: red;
-}
-
-
-
 .btns-group{
 	display: flex;
 	justify-content: center;
@@ -47,5 +25,13 @@
 	padding: 10px 15px;
 	border: none;
 	border-radius: 7px;
-	color: white;	
+	color: white;
+	cursor: pointer;	
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }

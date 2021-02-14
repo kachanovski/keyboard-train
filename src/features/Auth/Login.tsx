@@ -6,12 +6,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { StateType } from '../../redux/store'
 import { Redirect } from 'react-router-dom'
 import { googleSignInTC, loginTC } from '../../redux/reducers/AuthReducer'
-import UIField from '../../component/UIField'
+import UIField from '../../component/UIField/UIField'
+
 
 export const Login: React.FC = () => {
 	const dispatch = useDispatch()
-	const isAuth = useSelector((state: StateType) => state.auth.isAuth)
-	console.log('login', isAuth)
+	const { isAuth, errorMessage } = useSelector((state: StateType) => state.auth);
+	console.log('login', errorMessage)
 
 	const SignupSchema = Yup.object().shape({
 		email: Yup.string().email('Invalid email').required('Required'),
@@ -35,11 +36,16 @@ export const Login: React.FC = () => {
 						rememberMe: false,
 					}}
 					validationSchema={SignupSchema}
-					onSubmit={(values) => {
-						dispatch(loginTC(values.email, values.password, values.rememberMe))
+					onSubmit={async (values, actions) => {
+						try {
+							await dispatch(loginTC(values.email, values.password, values.rememberMe));
+						}
+						catch (error) {
+							actions.setStatus('Введите корректный логин или пароль')
+						}
 					}}
 				>
-					{({ errors, touched }) => (
+					{({ errors, touched, isSubmitting, isValid, dirty, status }) => (
 						<Form className="authentication-form">
 							<UIField
 								title={'Введите Email'}
@@ -63,14 +69,20 @@ export const Login: React.FC = () => {
 								type={'checkbox'}
 							/>
 							<div className="btns-group">
-								<button type="submit" className="btn">
+								<button
+									type="submit"
+									className="btn"
+									disabled={(!isValid || !dirty) || isSubmitting}
+								>
 									Отправить
 								</button>
 							</div>
+							{status && (
+								<div className="error">{status}</div>
+							)}
 						</Form>
 					)}
 				</Formik>
-
 				<button onClick={dispatch(googleSignInTC)}>google</button>
 			</div>
 		</div>
