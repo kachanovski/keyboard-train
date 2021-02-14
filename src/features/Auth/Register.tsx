@@ -3,7 +3,7 @@ import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { useDispatch } from 'react-redux'
 import { registerTC } from '../../redux/reducers/AuthReducer'
-import UIField from '../../component/UIField'
+import UIField from '../../component/UIField/UIField'
 
 export const Register: React.FC = () => {
 	const dispatch = useDispatch();
@@ -27,11 +27,12 @@ export const Register: React.FC = () => {
 						rememberMe: false,
 					}}
 					validationSchema={SignupSchema}
-					onSubmit={(values) => {
-						dispatch(registerTC(values.email, values.password))
+					onSubmit={async (values, actions) => {
+						await dispatch(registerTC(values.email, values.password));
+						actions.setSubmitting(false);
 					}}
 				>
-					{({ errors, touched }) => (
+					{({ errors, touched, isSubmitting, isValid, dirty }) => (
 						<Form className="authentication-form">
 							<UIField
 									title={'Введите Email'}
@@ -48,7 +49,11 @@ export const Register: React.FC = () => {
 									type={'password'}
 							/>
 							<div className="btns-group">
-								<button type="submit" className="btn">
+								<button 
+									type="submit"
+									className="btn"
+									disabled={(!isValid || !dirty) || isSubmitting} 
+								>
 									Отправить
 								</button>
 							</div>
