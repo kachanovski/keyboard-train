@@ -11,6 +11,7 @@ import { Layout } from './features/TrainLayout/Layout'
 import { authMeTC } from './redux/reducers/AuthReducer'
 import { StateType } from './redux/store'
 import {Profile} from "./features/Profile/Profile";
+import Card from './features/TrainLayout/Card/Card'
 
 export const App = () => {
 	const isAuth = useSelector((state: StateType) => state.auth.isAuth)
@@ -35,6 +36,7 @@ export const App = () => {
 						<Route exact path="/" render={() => <Login />} />
 						<Route path="/register" render={() => <Register />} />
 						<Route path="/Profile" render={() => <Profile/>} />
+						<Route path="/card" render={() => <Card/>} />
 					</Switch>
 				</div>
 			</div>

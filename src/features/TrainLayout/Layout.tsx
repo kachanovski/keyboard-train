@@ -59,7 +59,6 @@ export const Layout = () => {
 	}
 	return (
 		<div className={'layout'}>
-			<Card />
 			<div className={'context-container'}>
 				<div className={'context-container__inputs-fields'}>
 					<CheckField
