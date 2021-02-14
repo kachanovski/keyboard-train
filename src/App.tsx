@@ -10,6 +10,7 @@ import { Quiz } from './features/Quiz/Quiz'
 import { Layout } from './features/TrainLayout/Layout'
 import { authMeTC } from './redux/reducers/AuthReducer'
 import { StateType } from './redux/store'
+import {Profile} from "./features/Profile/Profile";
 
 export const App = () => {
 	const isAuth = useSelector((state: StateType) => state.auth.isAuth)
@@ -34,6 +35,7 @@ export const App = () => {
 						<Route path="/quiz" render={() => <Quiz />} />
 						<Route exact path="/" render={() => <Login />} />
 						<Route path="/register" render={() => <Register />} />
+						<Route path="/Profile" render={() => <Profile/>} />
 					</Switch>
 				</div>
 			</div>
