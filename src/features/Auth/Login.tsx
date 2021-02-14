@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { StateType } from '../../redux/store'
 import { Redirect } from 'react-router-dom'
 import { googleSignInTC, loginTC } from '../../redux/reducers/AuthReducer'
+import UIField from '../../component/UIField'
 
 export const Login: React.FC = () => {
 	const dispatch = useDispatch()
@@ -40,34 +41,27 @@ export const Login: React.FC = () => {
 				>
 					{({ errors, touched }) => (
 						<Form className="authentication-form">
-							<label>
-								<div className="field">
-									<span>Введите Email</span>
-									<Field
-										className="authentication-field"
-										name="email"
-										type="email"
-									/>
-								</div>
-								{errors.email && touched.email ? (
-									<div className="error">{errors.email}</div>
-								) : null}
-							</label>
-
-							<label>
-								<div className="field">
-									<span>Введите пароль</span>
-									<Field className="authentication-field" name="password" type={'password'} />
-								</div>
-								{errors.password && touched.password ? (
-									<div className="error">{errors.password}</div>
-								) : null}
-							</label>
-
-							<label style={{ textAlign: 'left' }}>
-								<span>Запомнить меня</span>
-								<Field type="checkbox" name="checked" value="rememberMe" />
-							</label>
+							<UIField
+								title={'Введите Email'}
+								errors={errors}
+								touched={touched}
+								name={'email'}
+								type={'email'}
+							/>
+							<UIField
+								title={'Введите пароль'}
+								errors={errors}
+								touched={touched}
+								name={'password'}
+								type={'password'}
+							/>
+							<UIField
+								title={'Запомнить меня'}
+								errors={errors}
+								touched={touched}
+								name={'checked'}
+								type={'checkbox'}
+							/>
 							<div className="btns-group">
 								<button type="submit" className="btn">
 									Отправить

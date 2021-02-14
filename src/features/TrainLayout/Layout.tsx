@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { StateType } from '../../redux/store'
 import { CodeType, setIncrementMistakesAC, setNewTimeAC, setValueAC } from '../../redux/reducers/KeyboardReducer'
 import { Timer } from './Timer/Timer'
+import Card from './Card/Card'
 
 export const Layout = () => {
 	const mistakes = useSelector<StateType, number>((state) => state.keyboard.mistakes)
@@ -58,6 +59,7 @@ export const Layout = () => {
 	}
 	return (
 		<div className={'layout'}>
+			<Card />
 			<div className={'context-container'}>
 				<div className={'context-container__inputs-fields'}>
 					<CheckField
@@ -82,8 +84,6 @@ export const Layout = () => {
 			<div className={'keyboard'}>
 				<KeyBoard result={stringToArray} keyCount={keyCount} />
 			</div>
-
-
 		</div>
 	)
 }
