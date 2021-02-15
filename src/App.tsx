@@ -10,7 +10,7 @@ import { Quiz } from './features/Quiz/Quiz'
 import { Layout } from './features/TrainLayout/Layout'
 import { authMeTC } from './redux/reducers/AuthReducer'
 import { StateType } from './redux/store'
-import {Profile} from "./features/Profile/Profile";
+import { Profile } from './features/Profile/Profile'
 import Card from './features/TrainLayout/Card/Card'
 
 export const App = () => {
@@ -22,21 +22,20 @@ export const App = () => {
 	}, [dispatch, isAuth])
 
 	return (
-		<div className="App">
-			<div className={'context'}>
-				<div>
+		<div className='app'>
+			<div className={'app_container'}>
+				<>
 					<Menu />
-				</div>
-				<div className={'context__inner'}>
+				</>
+				<div className={'content_container'}>
 					<Header />
-
 					<Switch>
-						<Route path="/interviews" render={() => <Layout />} />
-						<Route path="/quiz" render={() => <Quiz />} />
-						<Route exact path="/" render={() => <Login />} />
-						<Route path="/register" render={() => <Register />} />
-						<Route path="/Profile" render={() => <Profile/>} />
-						<Route path="/card" render={() => <Card/>} />
+						<Route path={'/train/:category'} render={() => <Layout />} />
+						<Route path='/quiz' render={() => <Quiz />} />
+						<Route exact path='/' render={() => <Login />} />
+						<Route path='/register' render={() => <Register />} />
+						<Route path='/Profile' render={() => <Profile />} />
+						<Route path='/card' render={() => <Card />} />
 					</Switch>
 				</div>
 			</div>

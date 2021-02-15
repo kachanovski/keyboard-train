@@ -1,0 +1,92 @@
+.keyboard {
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    align-items:center;
+}
+
+.keyboard_row_first {
+    display: flex;
+}
+
+.keyboard_row_second {
+    display: flex;
+}
+.keyboard_row_third{
+    display: flex;
+}
+
+.keyboard_row_fourth {
+    display: flex;
+}
+
+.keyboard_row_last {
+    display: flex;
+}
+
+.keyboard_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    background-color: #2a2a2a;
+    width: 70px;
+    height: 65px;
+    margin: 2px;
+}
+
+.nextButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    width: 70px;
+    height: 65px;
+    margin: 2px;
+    background-color: #3F6C45;
+}
+
+.button_first_row:last-child{
+    width: 150px;
+}
+
+.button_second_row:last-child{
+    width: 100px;
+}
+.button_second_row:first-child{
+    width: 120px;
+}
+
+.button_third_row:first-child{
+    width: 135px;
+}
+.button_third_row:last-child{
+    width: 160px;
+}
+
+.button_fourth_row:first-child{
+    width: 180px;
+}
+.button_fourth_row:last-child{
+    width: 190px;
+}
+
+.button_last_row:first-child{
+    width: 120px;
+}
+.button_last_row:last-child{
+    width: 120px;
+}
+.button_last_row:nth-child(4){
+    width: 500px;
+}
+.button_last_row:nth-child(2){
+    width: 110px;
+}
+.button_last_row:nth-child(6){
+    width: 100px;
+}
+

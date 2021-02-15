@@ -15,12 +15,13 @@ interface ICard {
 
 interface IGetCards {
 	message: string
+	count: number
 	cards: ICard[]
 }
 
 export const cardAPI = {
-	getCards():Promise<IGetCards> {
-		return instance.get('card', {}).then(res => res.data)
+	getCards(category?:string):Promise<IGetCards> {
+		return instance.get(`card?category=${category}`, {}).then(res => res.data)
 	},
 	addCard(author: string, category: string, code: string): Promise<IAddCard>{
 		return instance.post('card', {author, category, code}).then(res => res.data)

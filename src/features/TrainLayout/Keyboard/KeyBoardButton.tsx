@@ -1,4 +1,5 @@
 import React from 'react'
+import s from './Ketboard.module.css'
 
 type ButtonPropsType = {
 	keyCount: number
@@ -9,20 +10,23 @@ type ButtonPropsType = {
 	colorValue: string
 	sizeValue: string
 	code: number
+	classname: string
 }
-
+// className={ }>
 export const Button = (props: ButtonPropsType) => {
 
 	const onClick = () => {
 		props.onClickButton(props.code)
 	}
-
+	const classNameForButton = props.result[props.keyCount] === props.value
+		|| props.result[props.keyCount] === props.upperValue ? `${s.nextButton}` : props.classname
+	console.log(classNameForButton)
 	return (
 		<div onClick={onClick}
-				 className={props.result[props.keyCount] === props.value || props.result[props.keyCount] === props.upperValue ? 'key-active' : 'key'}>
-
-			<span>{props.value}</span>
-
+				 className={classNameForButton}>
+			<span>
+				{props.value}
+			</span>
 		</div>
 	)
 }
