@@ -19,64 +19,35 @@ export type CodeType = {
 	updated?: string
 }
 
-
-export type initialKeyboardReducerState = {
-	mistakes: number
-	cardsCount: number
-	timeSec: number
-
-	cardsValue: CodeType[]
-	valueInInput: string
-	valuesInDisplay: string
-}
-
-const initialState: initialKeyboardReducerState = {
+const initialState = {
 	mistakes: 0, // подсчет ошибок
 	cardsCount: 0, // количество карточек в массиве
 	timeSec: 0,// включение таймера
 
-	cardsValue: [], //код полученный с сервака
+	cardsValue: [] as CodeType[], //код полученный с сервака
 	valueInInput: '',//вводимое значение
 	valuesInDisplay: '', //строка которую нужно ввести
 }
-export const KeyboardReducer = (state = initialState, action: ActionsType) => {
+
+export type initialKeyboardReducerState =  typeof initialState
+
+export const KeyboardReducer = (state = initialState, action: ActionsType): initialKeyboardReducerState => {
 	switch (action.type) {
 		case 'KEYBOARD/SET_INCREMENT_MISTAKES': {
 			return {
 				...state,
-				mistakes: ++state.mistakes,
+				mistakes: state.mistakes + 1,
 			}
 		}
-		case 'KEYBOARD/SET_VALUE': {
-			return {
-				...state,
-				valueInInput: action.newValueInInput,
-			}
-		}
-		case 'KEYBOARD/SET_NEW_TIME': {
-			return {
-				...state,
-				timeSec: action.time,
-			}
-		}
-		case 'KEYBOARD/SET_CODE': {
-			return {
-				...state,
-				cardsValue: action.code,
-			}
 
-		}
+		case 'KEYBOARD/SET_VALUE':
+		case 'KEYBOARD/SET_NEW_VALUE_IN_DISPLAY':
+		case 'KEYBOARD/SET_NEW_TIME':
+		case 'KEYBOARD/SET_CODE':
 		case 'KEYBOARD/SET_CARDS_COUNT': {
 			return {
 				...state,
-				cardsCount: action.cardsCount,
-			}
-		}
-		case 'KEYBOARD/SET_NEW_VALUE_IN_DISPLAY': {
-
-			return {
-				...state,
-				valuesInDisplay: action.value,
+				...action.payload
 			}
 		}
 		default:
@@ -90,31 +61,29 @@ export const setIncrementMistakesAC = () => {
 		type: 'KEYBOARD/SET_INCREMENT_MISTAKES',
 	} as const
 }
-
-export const setValueAC = (newValueInInput: string) => {
+export const setValueAC = (valueInInput: string) => {
 	return {
-		type: 'KEYBOARD/SET_VALUE', newValueInInput,
+		type: 'KEYBOARD/SET_VALUE', payload: {valueInInput},
 	} as const
 }
-export const setCodeAC = (code: Array<CodeType>) => {
+export const setCodeAC = (cardsValue2: Array<CodeType>) => {
 	return {
-		type: 'KEYBOARD/SET_CODE', code,
+		type: 'KEYBOARD/SET_CODE', payload: {cardsValue2}
 	} as const
 }
 export const setCardsCountAC = (cardsCount: number) => {
 	return {
-		type: 'KEYBOARD/SET_CARDS_COUNT', cardsCount,
+		type: 'KEYBOARD/SET_CARDS_COUNT', payload: {cardsCount},
 	} as const
 }
-
-export const setNewTimeAC = (time: number) => {
+export const setNewTimeAC = (timeSec: number) => {
 	return {
-		type: 'KEYBOARD/SET_NEW_TIME', time,
+		type: 'KEYBOARD/SET_NEW_TIME', payload: {timeSec}
 	} as const
 }
-export const setNewValueInDisplayAC = (value: string) => {
+export const setNewValueInDisplayAC = (valuesInDisplay: string) => {
 	return {
-		type: 'KEYBOARD/SET_NEW_VALUE_IN_DISPLAY', value,
+		type: 'KEYBOARD/SET_NEW_VALUE_IN_DISPLAY', payload: {valuesInDisplay},
 	} as const
 }
 
@@ -128,7 +97,6 @@ export const getCards = (category?: string) => async (dispatch: Dispatch) => {
 		console.log(e)
 	}
 }
-
 
 type SetIncrementMistakesType = ReturnType<typeof setIncrementMistakesAC>
 type setValueType = ReturnType<typeof setValueAC>

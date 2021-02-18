@@ -11,7 +11,7 @@ import UIField from '../../component/UIField/UIField'
 
 export const Login: React.FC = () => {
 	const dispatch = useDispatch()
-	const { isAuth, errorMessage } = useSelector((state: StateType) => state.auth);
+	const { isAuth, errorMessage, email, password } = useSelector((state: StateType) => state.auth);
 	console.log('login', errorMessage)
 
 	const SignupSchema = Yup.object().shape({
@@ -31,8 +31,8 @@ export const Login: React.FC = () => {
 				<h2 className={'authentication-title'}>Авторизация</h2>
 				<Formik
 					initialValues={{
-						email: '',
-						password: '',
+						email: email,
+						password: password,
 						rememberMe: false,
 					}}
 					validationSchema={SignupSchema}
@@ -72,7 +72,7 @@ export const Login: React.FC = () => {
 								<button
 									type="submit"
 									className="btn"
-									disabled={(!isValid || !dirty) || isSubmitting}
+									//disabled={(!isValid || !dirty) || isSubmitting}
 								>
 									Отправить
 								</button>

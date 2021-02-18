@@ -6,10 +6,13 @@ import { authAPI } from '../../api/AuthApi'
 const initialState = {
 	isAuth: false as boolean,
 	errorMessage: '' as string,
+	email: 'admin@admin.com' as string,
+	password: 'password' as string,
+	isAdmin: false as boolean
 }
 
 export type IThunk = ThunkAction<void, StateType, unknown, any>
-type ActionType = authMeAction | authErrorAction
+type ActionType = authMeType | authErrorType | setLoginDataType
 
 
 export const AuthReducer = (state = initialState, action: ActionType): typeof initialState => {
@@ -18,6 +21,8 @@ export const AuthReducer = (state = initialState, action: ActionType): typeof in
 			return { ...state, isAuth: action.isAuth, errorMessage: '' };
 		case "login/AUTH_ME_ERROR":
 			return { ...state, errorMessage: action.error, isAuth: false };
+		case 'login/AUTH_SET_DATA':
+			return {...state, isAdmin: action.isAdmin, email: action.email}
 		default:
 			return state;
 	}
@@ -27,11 +32,12 @@ export const AuthReducer = (state = initialState, action: ActionType): typeof in
 
 export const authMeAction = (isAuth: boolean) => ({ type: 'login/AUTH_ME', isAuth } as const);
 export const authErrorAction = (error: string) => ({ type: 'login/AUTH_ME_ERROR', error } as const);
-
+export const setLoginDataAction = (email: string, isAdmin: boolean) => ({type: 'login/AUTH_SET_DATA', email, isAdmin} as const)
 /* Thunk */
 export const loginTC = (email: string, password: string, rememberMe: boolean) => async (dispatch: Dispatch) => {
 	try {
-		await authAPI.login(email, password, rememberMe)
+		const res = await authAPI.login(email, password, rememberMe)
+		dispatch(setLoginDataAction(res.data.data.email, res.data.data.isAdmin))
 		dispatch(authMeAction(true));
 		return Promise.resolve(true);
 	} catch (e) {
@@ -42,7 +48,8 @@ export const loginTC = (email: string, password: string, rememberMe: boolean) =>
 
 export const authMeTC = () => async (dispatch: Dispatch) => {
 	try {
-		await authAPI.authMe()
+		const res = await authAPI.authMe()
+		dispatch(setLoginDataAction(res.data.data.email, res.data.data.isAdmin))
 		dispatch(authMeAction(true));
 	} catch (e) {
 		console.log(e);
@@ -77,5 +84,6 @@ export const registerTC = (email: string, password: string) => async (dispatch: 
 }
 
 //types 
-type authMeAction = ReturnType<typeof authMeAction>
-type authErrorAction = ReturnType<typeof authErrorAction>
+type authMeType = ReturnType<typeof authMeAction>
+type authErrorType = ReturnType<typeof authErrorAction>
+type setLoginDataType = ReturnType<typeof setLoginDataAction>

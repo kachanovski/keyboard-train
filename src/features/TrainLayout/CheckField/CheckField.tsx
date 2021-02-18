@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { Results } from '../Results/Results'
 import s from './CheckField.module.css'
 
 type CheckFieldType = {
@@ -8,6 +9,8 @@ type CheckFieldType = {
 	onChangeInputValue: (value: string) => void
 	isEnd: boolean
 	valueInDisplayToArray: Array<string>
+	mistakes: number
+	time: number
 }
 
 export const CheckField = (props: CheckFieldType) => {
@@ -27,7 +30,15 @@ export const CheckField = (props: CheckFieldType) => {
 			<div onKeyDown={onChangeValueOndisplay} className={s.container}>
 				<div className={s.text_field}>
 					{props.isEnd
-						? <h1>Great job!</h1>
+						? <div>
+							<h1>Great job!</h1>
+							<div>
+								Ошибок: {props.mistakes}
+							</div>
+							<div>
+								Время: {props.time}
+							</div>
+						</div>
 						: <div>
 							{props.valueInDisplayToArray.map((k, id) => {
 								const spam = id === props.keyCount ? `${s.change_letter}` : `${s.letter}`

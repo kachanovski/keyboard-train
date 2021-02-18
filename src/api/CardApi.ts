@@ -1,4 +1,4 @@
-import { instance } from "./instance"
+import { instance } from './instance'
 
 interface IAddCard {
 	message: string
@@ -20,10 +20,10 @@ interface IGetCards {
 }
 
 export const cardAPI = {
-	getCards(category?:string):Promise<IGetCards> {
+	getCards(category?: string): Promise<IGetCards> {
 		return instance.get(`card?category=${category}`, {}).then(res => res.data)
 	},
-	addCard(author: string, category: string, code: string): Promise<IAddCard>{
-		return instance.post('card', {author, category, code}).then(res => res.data)
-	}
+	addCard(author: string, category: string, code: string): Promise<IAddCard> {
+		return instance.post('card', { author, category, code }).then(res => res.data)
+	},
 }

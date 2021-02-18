@@ -18,6 +18,7 @@ import { useParams } from 'react-router-dom'
 
 export const Layout = () => {
 
+	//const {mistakes, timeSec, cardsCount, cardsValue, valueInInput} = useSelector<StateType, number>((state) => state.keyboard)
 	const mistakes = useSelector<StateType, number>((state) => state.keyboard.mistakes)
 	const time = useSelector<StateType, number>((state) => state.keyboard.timeSec)
 	const cardsCount = useSelector<StateType, number>((state) => state.keyboard.cardsCount)
@@ -39,7 +40,11 @@ export const Layout = () => {
 	const { category }: any = useParams()
 	useEffect(() => {
 		dispatch(getCards(category))
+		dispatch(setValueAC(''))
+		dispatch(setIncrementMistakesAC())
 		setSeconds(0)
+		setIsActiveTimer(false)
+		setKeyCount(0)
 		setIsEnd(false)
 	}, [dispatch, category])
 
@@ -80,6 +85,8 @@ export const Layout = () => {
 						 <CheckField
 							valueInDisplayToArray={valueInDisplayToArray}
 							isEnd={isEnd}
+							time={time}
+							mistakes={mistakes}
 							keyCount={keyCount}
 							valuesInDisplay={valuesInDisplay}
 							valueInInput={valueInInput}

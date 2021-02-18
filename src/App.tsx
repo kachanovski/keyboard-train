@@ -12,9 +12,11 @@ import { authMeTC } from './redux/reducers/AuthReducer'
 import { StateType } from './redux/store'
 import { Profile } from './features/Profile/Profile'
 import Card from './features/TrainLayout/Card/Card'
+import { AdminProfile } from './features/Profile/AdminProfile/AdminProfile'
 
 export const App = () => {
-	const isAuth = useSelector((state: StateType) => state.auth.isAuth)
+	const isAuth = useSelector<StateType, boolean>((state: StateType) => state.auth.isAuth)
+
 	const dispatch = useDispatch()
 
 	useEffect(() => {
@@ -34,7 +36,8 @@ export const App = () => {
 						<Route path='/quiz' render={() => <Quiz />} />
 						<Route exact path='/' render={() => <Login />} />
 						<Route path='/register' render={() => <Register />} />
-						<Route path='/Profile' render={() => <Profile />} />
+						<Route path='/profile' render={() => <Profile />} />
+						<Route path='/admin' render={() => <AdminProfile />} />
 						<Route path='/card' render={() => <Card />} />
 					</Switch>
 				</div>
