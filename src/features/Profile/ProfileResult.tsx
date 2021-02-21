@@ -1,42 +1,69 @@
-import s from "./Profile.module.css";
-import React, {useState} from "react";
-import {StatisticsProfile} from "./StatisticsProfile";
-import {ProfileResultMenu} from "./ProfileResultMenu";
+import s from './Profile.module.css'
+import React, { useState } from 'react'
+import { StatisticsProfile } from './StatisticsProfile'
+import { ProfileResultMenu } from './ProfileResultMenu'
+import { Menu, Tabs } from 'antd'
+import { trainKeyBoardCategories } from '../../App'
+import { Table, Tag, Space } from 'antd';
+import { NavLink } from 'react-router-dom'
 
 
 export type StatisticksType = {
-    time: number
-    mistakes: number
-    speed: number
+	time: number
+	mistakes: number
+	speed: number
 }
 export const ProfileResult = () => {
+	const { TabPane } = Tabs
+    const { Column, ColumnGroup } = Table;
 
-    const [statistics, setStatistics] = useState<StatisticksType[]>([{
-        time: 20,
-        mistakes: 0,
-        speed: 10
-    }])
+    const data = [
+        {
+            date: '1.2.1883',
+            time: 12,
+            mistakes: 4,
+        },
+        {
+            date: '1.2.1883',
+            time: 12,
+            mistakes: 4,
+        }, {
+            date: '1.2.1883',
+            time: 12,
+            mistakes: 4,
+        }, {
+            date: '1.2.1883',
+            time: 12,
+            mistakes: 4,
+        }, {
+            date: '1.2.1883',
+            time: 12,
+            mistakes: 4,
+        },
+        {
+            date: '1.2.1883',
+            time: 12,
+            mistakes: 4,
+        },
+    ];
 
-    const [activeButton, setActiveButton] = useState<number>(0)
+	function callback(key: string) {
+		console.log(key)
+	}
 
-    function getStatistick(value: number) {
-        const newStatistick: StatisticksType = {
-            time: Math.floor(Math.random() * 100),
-            mistakes: Math.floor(Math.random() * 100),
-            speed: Math.floor(Math.random() * 100)
-        }
-        setStatistics([newStatistick])
-        setActiveButton(value)
-    }
+	return (
+		<Tabs onChange={callback}>
 
-    return (
-        <div className={s.resultProfile}>
-            <div className={s.myResult}>
-                My result:
-            </div>
-            <ProfileResultMenu getStatistick={getStatistick} activeButtons={activeButton}/>
-            <StatisticsProfile statistics={statistics}/>
-        </div>
-    )
+			{trainKeyBoardCategories.map((c, id) =>
+				<TabPane tab={c.name} key={id}>
+            <Table dataSource={data}>
+                <Column title="Date" dataIndex="date" key="date"/>
+                <Column title="Time" dataIndex="time" key="address" />
+                <Column title="mistakes" dataIndex="mistakes" key="mistakes" />
+            </Table>
+				</TabPane>
+			)}
+		</Tabs>
+	)
 }
 

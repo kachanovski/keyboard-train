@@ -11,7 +11,7 @@ export const Register: React.FC = () => {
 	const SignupSchema = Yup.object().shape({
 		email: Yup.string().email('Invalid email').required('Required'),
 		password: Yup.string()
-			.min(2, 'Too Short!')
+			.min(5, 'Too Short!')
 			.max(50, 'Too Long!')
 			.required('Required'),
 	})
@@ -19,7 +19,8 @@ export const Register: React.FC = () => {
 	return (
 		<div className={'authentication'}>
 			<div className={'authentication-card'}>
-				<h2 className={'authentication-title'}>Регистрация</h2>
+				<div className={'auth-form'}>
+				<div className={'authentication-title'}>REGISTER</div>
 				<Formik
 					initialValues={{
 						email: '',
@@ -61,6 +62,8 @@ export const Register: React.FC = () => {
 					)}
 				</Formik>
 			</div>
+			</div>
+			<div className={'auth-img-container'}/>
 		</div>
 	)
 }

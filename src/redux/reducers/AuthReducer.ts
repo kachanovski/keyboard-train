@@ -6,8 +6,8 @@ import { authAPI } from '../../api/AuthApi'
 const initialState = {
 	isAuth: false as boolean,
 	errorMessage: '' as string,
-	email: 'admin@admin.com' as string,
-	password: 'password' as string,
+	email: '' as string,
+	password: '' as string,
 	isAdmin: false as boolean
 }
 

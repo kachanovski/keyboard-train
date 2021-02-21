@@ -1,6 +1,10 @@
 .quiz {
-    text-align: start;
-    margin-left: 10px;
+   display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.textQuestion{
+    font-size: 30px;
 }
 
 .answer {

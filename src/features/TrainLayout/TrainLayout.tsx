@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import s from './TrainLayout.module.css'
+import './TrainLayout.css'
 
-import { CheckField } from './CheckField/CheckField'
+import { TrainCheckField } from './TrainCheckField/TrainCheckField'
 import { KeyBoard } from './Keyboard/Keyboard'
-import { Results } from './Results/Results'
 import { useDispatch, useSelector } from 'react-redux'
 import { StateType } from '../../redux/store'
 import {
@@ -15,8 +14,9 @@ import {
 	setValueAC,
 } from '../../redux/reducers/KeyboardReducer'
 import { useParams } from 'react-router-dom'
+import { TrainTextField } from './TrainTextField/TrainTextField'
 
-export const Layout = () => {
+export const TrainLayout = () => {
 
 	//const {mistakes, timeSec, cardsCount, cardsValue, valueInInput} = useSelector<StateType, number>((state) => state.keyboard)
 	const mistakes = useSelector<StateType, number>((state) => state.keyboard.mistakes)
@@ -52,12 +52,13 @@ export const Layout = () => {
 	if (valuesInDisplay) {																			//разбиваем строку на массив строк
 		valueInDisplayToArray = valuesInDisplay.split('')
 	}
-
+	console.log(cardsValue)
 	const onChangeInputValue = (newValueInInput: string) => {
 
 		setKeyCount(keyCount + 1)   // после каждого нажатия на клавишу увеличивает на 1
 		setIsActiveTimer(true)
 		if (cardsCount === count && cardsValue[cardsCount - 1].code.length === valueInInput.length + 1) {  //условие выхода, когда введены все строки из массива cardsValue
+			debugger
 			setIsEnd(true)
 			setIsActiveTimer(false)
 			dispatch(setNewTimeAC(seconds))
@@ -78,28 +79,42 @@ export const Layout = () => {
 	}
 
 	return (
-		<div className={s.layout}>
-			<div className={s.container}>
-				<div className={s.title}>{category}</div>
-				<div className={s.code_field}>
-						 <CheckField
-							valueInDisplayToArray={valueInDisplayToArray}
-							isEnd={isEnd}
-							time={time}
-							mistakes={mistakes}
-							keyCount={keyCount}
-							valuesInDisplay={valuesInDisplay}
-							valueInInput={valueInInput}
-							onChangeInputValue={onChangeInputValue}
-						/>
-				</div>
-				<Results mistakes={mistakes} isActiveTimer={isActiveTimer} setSeconds={setSeconds} seconds={seconds} />
+		/*		<div className={s.layout}>
+					<div className={s.container}>
+						<div className={s.code_field}>
+							<TrainCheckField
+								category={category}
+								valueInDisplayToArray={valueInDisplayToArray}
+								isEnd={isEnd}
+								time={time}
+								mistakes={mistakes}
+								keyCount={keyCount}
+							/>
+						</div>
+						<Results mistakes={mistakes} isActiveTimer={isActiveTimer} setSeconds={setSeconds} seconds={seconds} />
 
-				<div className={s.keyboard_field}>
-					<KeyBoard result={valueInDisplayToArray} keyCount={keyCount} />
-				</div>
+
+							<KeyBoard result={valueInDisplayToArray} keyCount={keyCount} />
+
+					</div>
+				</div>*/
+
+		<div className={'layout'}>
+			<div>
+				<TrainCheckField
+					category={category}
+					valueInDisplayToArray={valueInDisplayToArray}
+					isEnd={isEnd}
+					time={time}
+					mistakes={mistakes}
+					keyCount={keyCount}
+				/>
+				<KeyBoard result={valueInDisplayToArray} keyCount={keyCount} />
 			</div>
+
+			<TrainTextField valueInInput={valueInInput} onChangeInputValue={onChangeInputValue} isEnd={isEnd} />
 		</div>
+
 	)
 }
 

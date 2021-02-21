@@ -1,0 +1,35 @@
+.layout {
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    grid-gap: 20px;
+    height: 100%;
+}
+
+.textArea{
+    width: 100%;
+    outline: none;
+    padding: 10px 10px 10px 15px;
+    background-color: #2a2a2a;
+    resize: none;
+    font-size: 18px;
+    border: none;
+    color: #ffffff;
+    line-height: 1.15;
+}
+.change_letter{
+    letter-spacing: 10px;
+    font-size: 20px;
+    color: darkorange;
+}
+.letter {
+    letter-spacing: 10px;
+    font-size: 20px;
+}
+.checkField{
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 56%;
+    margin-bottom: 20px;
+}

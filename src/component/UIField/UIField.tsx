@@ -1,5 +1,5 @@
 import React from 'react'
-import './UIField.css';
+import './UIField.css'
 import { Field } from 'formik'
 
 type FieldProps = {
@@ -10,22 +10,22 @@ type FieldProps = {
 	type: string
 }
 
-const UIField = ({errors, touched, title, name, type}: FieldProps) => {
+const UIField = ({ errors, touched, title, name, type }: FieldProps) => {
 	return (
-		<label className="field-label">
-			<div className="field">
-				<span>{title}</span>
+		<label className='field-label'>
+			<div className='field'>
+				<span className={'field-title'}>{title}</span>
 				<Field
-					className="input-field"
+					className='input-field'
 					name={name}
 					type={type}
 				/>
 			</div>
 			{errors[name] && touched[name] ? (
-				<div className="error">{errors[name]}</div>
+				<div className='error'>{errors[name]}</div>
 			) : null}
 		</label>
 	)
 }
 
-export default UIField;
+export default UIField
