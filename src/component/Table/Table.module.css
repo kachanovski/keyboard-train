@@ -1,0 +1,32 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  border: 0.1rem solid #d3d3d3;
+  font-size: 1rem;
+  margin: 0.5rem;
+  line-height: 1.5;
+  justify-content: center;
+  text-align: center;
+}
+.table_header {
+  background-color: #f9f9f9;
+}
+.table_header .table_cell {
+  font-weight: bold;
+}
+
+.table_row {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.table_cell {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  padding: 0.5em;
+  word-break: break-word;
+  border-left: 1px solid #d3d3d3;
+}
+.table_cell:first-child {
+  border: none;
+}
