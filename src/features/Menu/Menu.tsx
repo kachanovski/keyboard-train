@@ -7,7 +7,13 @@ import { getCards } from '../../redux/reducers/KeyboardReducer'
 
 export const Menu = () => {
 
-
+	const category = [
+		{ name: 'Class', link: 'Class' },
+		{ name: 'Function', link: 'Function' },
+		{ name: 'Promise', link: 'Promise' },
+		{ name: 'Hosting', link: 'Hosting' },
+		{ name: 'Prototype', link: 'Prototype' },
+	]
 
 	const dispatch = useDispatch()
 
@@ -23,7 +29,11 @@ export const Menu = () => {
 				</div>
 				<div>
 
-
+					{category.map((c, id) =>
+						<div className={s.link_container}>
+							<NavLink key={id} to={`/train/${c.link}`} className={s.link} activeClassName={s.activeLink}> {c.name}</NavLink>
+						</div>
+					)}
 					<div className={s.link_container}>
 					<NavLink to={'/card'} className={s.link} activeClassName={s.activeLink}> Add card</NavLink>
 					</div>

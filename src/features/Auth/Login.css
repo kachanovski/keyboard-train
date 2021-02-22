@@ -1,56 +1,37 @@
-.authentication {
-    color: #CAB9B1;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+.authentication{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-
-.auth-img-container {
-    background-image: url("/src/accets/keyboard.jpg");
-    background-size: cover;
+.authentication-card{
+	max-width: 400px;
+	width: 100%;
+	border: 1px solid grey;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	padding: 10px;
 }
 
-.auth-img{
-    width: 100%;
-    height: 100%;
+.btns-group{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
 }
 
-.authentication-title {
-    font-size: 20px;
-    letter-spacing: 4px;
-    padding-bottom: 30px;
-}
-
-.authentication-card {
-    background-color: #2a2a2a;
-    width: 100%;
-}
-
-.auth-form {
-    padding: 45% 5% 10% 20%;
-}
-
-.btns-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.btn {
-    background-color: tomato;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 7px;
-    color: white;
-    cursor: pointer;
+.btn{
+	background-color: tomato;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 7px;
+	color: white;
+	cursor: pointer;	
 }
 
 button:disabled,
-button[disabled] {
-    border: 1px solid #999999;
-    background-color: #cccccc;
-    color: #666666;
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }

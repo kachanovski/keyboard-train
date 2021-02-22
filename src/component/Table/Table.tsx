@@ -43,7 +43,7 @@ type dataRowType = {
     score: number
 }
 
-const TableContent: React.FC<dataRowType> = props => {
+const TableContentRow: React.FC<dataRowType> = props => {
     return (
         <div className={s.table_row}>
             <div className={s.table_cell}>{props.name}</div>
@@ -74,7 +74,7 @@ const ResultTable: React.FC = () => {
                 <div className={s.table_cell}>Time</div>
                 <div className={s.table_cell}>Score</div>
             </div>
-            {isLoading ? 'Loading...' : dataSource.map(rowData => <TableContent {...rowData} />)}
+            {isLoading ? 'Loading...' : dataSource.map(rowData => <TableContentRow {...rowData} />)}
         </div>
     )
 }

@@ -1,0 +1,46 @@
+.check_field{
+
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    padding: 20px 50px;
+}
+
+.text_field{
+    padding: 20px;
+    width: 70%;
+    min-height: 400px;
+    background-color: #E29930 ;
+}
+
+
+.textArea{
+    margin-left: 30px;
+    width: 40%;
+    outline: none;
+    height: 400px;
+    padding: 10px 10px 10px 15px;
+    background-color: #2a2a2a;
+    resize: none;
+    font-size: 18px;
+    border: none;
+    color: #ffffff;
+    line-height: 1.15;
+    font-family: "Raleway", sans-serif;
+}
+
+.letter {
+    padding: 4px;
+    background-color: transparent;
+    font-size: 25px;
+    font-style: italic;
+}
+
+.change_letter{
+    padding: 4px;
+    font-size: 27px;
+    font-style: italic;
+    background-color: #15cbb7;
+}

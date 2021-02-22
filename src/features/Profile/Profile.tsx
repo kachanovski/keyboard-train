@@ -1,21 +1,20 @@
-import React from 'react'
-import { ProfileAvatar } from './ProfileAvatar'
-import { ProfileResult } from './ProfileResult'
-import { Col, Row } from 'antd'
-
+import React from 'react';
+import s from './Profile.module.css'
+import {ProfileAvatar} from "./ProfileAvatar";
+import {ProfileInfo} from "./ProfileInfo";
+import {ProfileResult} from "./ProfileResult";
 
 export function Profile() {
-	return (
-		<>
-			<Row>
-				<Col span={18} push={6}>
-					<ProfileResult />
-				</Col>
-				<Col span={6} pull={18}>
-					<ProfileAvatar />
-				</Col>
-			</Row>
-		</>
-	)
+    return (
+        <div className={s.profile}>
+            <div className={s.container}>
+                <div className={s.profileInfo}>
+                    <ProfileAvatar/>
+                    <ProfileInfo/>
+                </div>
+               <ProfileResult/>
+            </div>
+        </div>
+    )
 }
 
