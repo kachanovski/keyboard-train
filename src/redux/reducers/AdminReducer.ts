@@ -17,45 +17,56 @@ const initialState = {
 }
 
 export type IThunk = ThunkAction<void, StateType, unknown, any>
+
 type ActionType = getCardsType
+	| deleteCurrentCardType
 
 
 export const AdminReducer = (state = initialState, action: ActionType): typeof initialState => {
 	switch (action.type) {
 		case 'admin/GET_CARDS':
 			return {...state, cards: action.cards}
+		case "admin/DELETE_CARD":
+			return{
+				...state,
+				cards: state.cards.filter(c => c._id !== action.id)
+			}
 		default:
 			return state;
 	}
 }
 
-//actions
+// Actions
 
-export const getAllCardsAction = (cards: Array<cardsType>) => ({ type: 'admin/GET_CARDS', cards } as const);
-/* Thunk */
+export const getAllCardsAC = (cards: Array<cardsType>) => ({ type: 'admin/GET_CARDS', cards } as const);
+export const deleteCardAC = (id: string) => ({type: 'admin/DELETE_CARD', id} as const)
+
+// Thunk
 export const getAllCardsTC = () => async (dispatch: Dispatch) => {
 	try {
 		const res = await adminAPI.getAllCards()
-		dispatch(getAllCardsAction(res.data.cards))
+		dispatch(getAllCardsAC(res.data.cards))
 	} catch (e) {
 		console.log(e)
 	}
 }
-export const removeCardTC = (id: string)  => async (dispatch: Dispatch<any>) => {
+export const deleteCardTC = (id: string)  => async (dispatch: Dispatch<any>) => {
 	try {
-		await adminAPI.removeCard(id)
+		await adminAPI.deleteCard(id)
 		dispatch(getAllCardsTC())
 	} catch (e) {
-		console.log(e)
+		console.log(e, 'deleteCardTC error')
 	}
 }
-export const updateCardTC = (id: string)  => async (dispatch: Dispatch<any>) => {
-	try {
-		await adminAPI.updateCard(id)
-		dispatch(getAllCardsTC())
-	} catch (e) {
-		console.log(e)
-	}
-}
-//types
-type getCardsType = ReturnType<typeof getAllCardsAction>
+// export const updateCardTC = (id: string)  => async (dispatch: Dispatch) => {
+// 	try {
+// 		await adminAPI.updateCard(id)
+// 		dispatch(getAllCardsTC())
+// 	} catch (e) {
+// 		console.log(e)
+// 	}
+// }
+
+// Types
+type getCardsType = ReturnType<typeof getAllCardsAC>
+type deleteCurrentCardType = ReturnType<typeof deleteCardAC>
