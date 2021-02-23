@@ -66,9 +66,9 @@ export const setValueAC = (valueInInput: string) => {
 		type: 'KEYBOARD/SET_VALUE', payload: {valueInInput},
 	} as const
 }
-export const setCodeAC = (cardsValue2: Array<CodeType>) => {
+export const setCodeAC = (cardsValue: Array<CodeType>) => {
 	return {
-		type: 'KEYBOARD/SET_CODE', payload: {cardsValue2}
+		type: 'KEYBOARD/SET_CODE', payload: {cardsValue}
 	} as const
 }
 export const setCardsCountAC = (cardsCount: number) => {

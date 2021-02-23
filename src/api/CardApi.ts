@@ -21,6 +21,7 @@ interface IGetCards {
 
 export const cardAPI = {
 	getCards(category?: string): Promise<IGetCards> {
+		console.log('cardAPI getCards')
 		return instance.get(`card?category=${category}`, {}).then(res => res.data)
 	},
 	addCard(author: string, category: string, code: string): Promise<IAddCard> {
